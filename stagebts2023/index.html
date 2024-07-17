@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Images/Hlogo.png">
+    <link rel="stylesheet" href="musiqueit.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script> <!-- c'est d'ici que les logos et les formes sont récupérés -->
+    <title>Haltère IT - Musique</title>
+</head>
+<body>
+    <div class="container"> <!-- C'est le fond d'écran du site -->
+        <div class="scroll"> <!-- Permet de scroll tout et uniquement tout ce qui se trouve dans la div -->
+        <div class="tahdeezer"> <!-- La forme du rectagle qui va avoir le contenu -->
+        <nav>
+            <a href="https://www.haltereit.com/musique"><div class="cercle"> <!-- met le contenu dans un cercle -->
+                <i class="fa-solid fa-angle-left"></i> <!-- bouton retour menant à haltèreit -->
+            </div></a>
+            <h1><b>Haltère IT - Playlist</b></h1>
+            <div class="cercle">
+                <i class="fa-solid fa-bars"></i><!-- bouton playlist (les 3 barres) -->
+            </div>
+        </nav>
+        <img src="Images/logo.png" class="img-son"> <!-- Cover (changer la source si le code change d'ordi) -->
+        <div class="song-name">
+            <h1 class="name"></h1>
+            <p class="artist"></p>
+        </div>
+        <div class="progress-area">
+            <div class="progress-bar">
+                <span></span>
+            </div> <!-- barre de durée du son -->
+            <div class="timer"><nav>
+                <span class="current">-:--</span>
+                <span class="duration">-:--</span>
+            </nav></div>
+            <audio id="song" src=""></audio> <!-- son utilisé (changer la source si le code change d'ordi) -->
+        </div>
+
+        <div class="controles">
+            <div><i id="repeat-plist" class="material-icons" title="Répéter">repeat</i></div>
+            <div><i id="prev" class="material-icons">skip_previous</i></div> <!-- bouton musique précédente -->
+            <div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i></div> <!-- bouton play (peut changer de valeur) -->
+            <div><i id="next" class="material-icons">skip_next</i></div> <!-- bouton musique suivante -->
+            <div><i id="more-music" class="material-icons">queue_music</i></div>
+        </div>
+        <div class="music-list">
+            <div class="header">
+                <div class="row">
+                    <i class="material-icons">queue_music</i>
+                    <span>File d'attente de l'incroyable Kyky</span>
+                </div>
+                <i id="close" class="material-icons">close</i>
+            </div>
+        <ul>
+
+        </ul>
+        </div>
+        </div>
+    </div>
+
+<script src="jscode/musiqueit.js"></script>
+<script src="jscode/script.js"></script>
+
+</body>
+</html>

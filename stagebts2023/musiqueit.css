@@ -1,0 +1,250 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%; /* Prend toute la largeur de l'écran */
+    height: 100vh; /* Prend toute la hauteur en fonction de la fenêtre */
+    background-color: #f1f1f1;
+    background-image: url('Images/wpredandblue.jpg'); /* Couleur de fond */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex; /* Libre déplacement du contenu */
+    align-items: center; /* Centrage vertical */
+    justify-content: center; /* Centrage horizontal */
+    flex-wrap: wrap;
+}
+
+.tahdeezer{
+    background: linear-gradient(to top, #ffe5e0, #a0a0ff);
+    position: relative;
+    border-radius: 5%;
+    width: 500px;
+    padding: 25px 35px; /* espace entre les bords de la div et le contenu (25 cest vertical et 35 horizontal) */
+    text-align: center;
+    box-sizing: border-box;
+    box-shadow: 0 5px 10px rgba(26, 26, 200, 0.5);
+}
+
+nav{
+    display: flex;
+    justify-content: space-between; /* Espace egal entre les éléments */
+    margin-bottom: 30px; /* A 30px du bas de la division */
+}
+.timer{
+    color: #1172f5;
+    margin-top: 5px;
+}
+
+.progress-area{
+    height: 10px;
+    width: 100%;
+    background: #e0e5ff;
+    border-radius: 50px;
+    border: 2px solid black;
+    cursor: pointer;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    font-size: 17px;
+}
+.progress-area .progress-bar{
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+    background: linear-gradient(to right, #0bc5e8, #ff00a4);
+}
+
+nav .cercle{
+    border-radius: 50%; /* Arrondi qui forme le cercle */
+    width: 40px;
+    height: 40px;
+    line-height: 40px; /*l 'espace vertical entre les lignes de texte */
+    background: #fff;
+    color: #3192f5;
+    box-shadow: 0 5px 10px rgba(26, 26, 200, 0.5); /* Ombre du contenu : position horizontale + position verticale + flou + couleur */
+    cursor: pointer;
+}
+nav .cercle:hover{
+    background: #3192f5;
+    color: #fff;
+}
+
+.img-son{
+    width: 300px;
+    border-radius: 15%;
+    border: 5px solid #fff; /* Les contours */
+    box-shadow: 0 5px 10px rgba(26, 26, 200, 0.5); /* Ombre du contenu : position horizontale + position verticale + flou + couleur */
+}
+
+.tahdeezer h1{
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+    margin-top: 20px;
+}
+
+.tahdeezer p{
+    font-size: 14px;
+    color: #888;
+}
+
+.song-name .name{
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+    margin-top: 20px;
+}
+
+.song-name .artist{
+    font-size: 14px;
+    color: #888;
+}
+
+.controles, .music-list .header, .music-list li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+span{
+    justify-content: space-between;
+    display: inline-flex;
+
+}
+
+.controles div{
+    width: 55px;
+    height: 55px;
+    margin: 15px; /* les éléments pourront pas être a moins de 20px du vrai rebord */
+    background: #fff; /* fond du bouton */
+    display: inline-flex; /* déplacement libre des éléments mais sur la même ligne */
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* big cercle t'as capté */
+    color: #3192f5;
+    box-shadow: 0 10px 20px rgba(255, 26, 26, 0.22);
+    cursor: pointer;
+}
+
+.scroll{
+    max-height: 100%; /* limite la taille de cette zone a la fenetre de la page */
+    overflow-y: auto; /* met une barre de defilement si c'est trop long */
+    overflow-x: auto; /* pareil */
+}
+.scroll::-webkit-scrollbar{
+    width: 0.5em; /* L'épaisseur de la barre est tarpin fine */
+}
+.scroll::-webkit-scrollbar-track{
+    background-color: transparent; /* La barre du sélecteur est transparente */
+}
+.scroll::-webkit-scrollbar-thumb{
+    background-color: transparent; /* la barre pleine est transparente */
+}
+
+.controles div:nth-child(3){
+    transform: scale(1.5);
+    background: #3192f5;
+    color: #fff;
+}
+.controles div:nth-child(1){
+    transform: scale(0.85);
+    background: #e0e5ff;
+    border: 1px solid #3192f5;
+}
+.controles div:nth-child(5){
+    transform: scale(0.85);
+    background: #e0e5ff;
+    border: 1px solid #3192f5;
+}
+.controles div:not(#ctrlIcon):hover{
+    background: #3192f5;
+    color: #fff;
+}
+
+/* toute cette partie c'est pour le bouton de la playlist */
+
+.music-list{
+    position: absolute;
+    left: 0;
+    bottom: -55%;
+    opacity: 0;
+    pointer-events: none;
+    width: 100%;
+    padding: 15px 15px;
+    border: 1px solid black;
+    background: #ffe5e0;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(26, 26, 255, 1);
+    transition: all 0.14s ease-out;
+}
+/* On utilisera cette classe "show" dans Javascript */
+.music-list.show{
+    bottom: 0;
+    opacity: 1;
+    pointer-events: auto;
+}
+.music-list .header {
+    display: flex;
+    align-items: center;
+    font-size: 19px;
+    color: #3192f5;
+    margin-bottom: 15px;
+}
+.music-list .header .row{
+    cursor: default;
+}
+.music-list .header .row span{
+    margin-left: 5px;
+}
+.header #close{
+    font-size: 22px;
+}
+.music-list ul{
+    margin: 10px 0;
+    max-height: 260px;
+    overflow-y: auto;
+}
+.music-list ul::-webkit-scrollbar{
+    width: 1em;
+    background: #e0e5ff;
+    border-radius: 4px;
+}
+.music-list ul::-webkit-scrollbar-thumb{
+    background: #3192f5;
+    border-radius: 4px;
+}
+.music-list ul li{
+    cursor: pointer;
+    list-style: none;
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+.music-list ul li:hover{
+    background: #e0e5ff;
+}
+.music-list ul li:last-child{
+    border-bottom: 0px;
+}
+.music-list ul li .row span{
+    font-size: 15px;
+}
+ul li .audio-duration{
+    font-size: 16px;
+}
+ul li.playing{
+    color: #1172f5;
+    pointer-events: none;
+}
+#close{
+    cursor: pointer;
+}
+.row p{
+    display: flex;
+    justify-content: left;
+}
+
